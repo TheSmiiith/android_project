@@ -25,7 +25,8 @@
         android:id="@+id/profile_wrapper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/profile_top_appbar_layout">
+        android:layout_below="@+id/profile_top_appbar_layout"
+        android:background="@color/colorWhite">
 
         <TextView
             android:id="@+id/textView"
