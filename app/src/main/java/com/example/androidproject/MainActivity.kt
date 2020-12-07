@@ -4,15 +4,22 @@ import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.androidproject.databinding.ActivityMainBinding
 import com.example.androidproject.fragments.ProfileFragment
 import com.example.androidproject.fragments.RestaurantsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        /* Data Binding */
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         /* Set Orientation to portrait */
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT

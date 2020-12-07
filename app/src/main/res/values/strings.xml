@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Where To Eat?</string>
+    <!-- Navigation -->
     <string name="restaurants">Restaurants</string>
     <string name="profile">Profile</string>
+    <!-- Restaurants Fragment -->
     <string name="search">Search</string>
+    <!-- Profile Fragment -->
+    <string name="favorites">Favorites</string>
+    <string name="profile_settings">Settings</string>
 </resources>
