@@ -1,5 +1,6 @@
 package com.example.androidproject
 
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /* Set Orientation to portrait */
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+        /* Bottom Navigation Implementation */
         val restaurantsFragment = RestaurantsFragment()
         val profileFragment = ProfileFragment()
 
