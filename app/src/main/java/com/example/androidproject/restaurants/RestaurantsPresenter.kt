@@ -1,5 +1,7 @@
 package com.example.androidproject.restaurants
 
+import com.example.androidproject.api.RestaurantsAPI
+import com.example.androidproject.api.RestaurantsAPIClient
 import com.example.androidproject.models.RestaurantResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
@@ -8,31 +10,25 @@ import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract.Presenter(view) {
     override fun getRestaurants() {
         view.showLoading()
-        val client = OkHttpClient()
-        val request: Request = Request.Builder()
-            .url("https://opentable.herokuapp.com/api/restaurants?country=US&page=1")
-            .build()
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val response: Response = client.newCall(request).execute()
-                if (!response.isSuccessful) {
-                    view.hideLoading()
-                    view.showError(null)
-                }
-                val gson = Gson()
-                val restaurantResponse: RestaurantResponse = gson.fromJson(response.body()?.charStream(), RestaurantResponse::class.java)
+                val restaurantResponse = RestaurantsAPIClient.getInstance().getRestaurants().execute().body()
                 view.hideLoading()
-                view.setRestaurants(restaurantResponse.restaurants)
+                view.setRestaurants(restaurantResponse!!.restaurants)
             } catch (e: Exception) {
                 view.hideLoading()
                 view.showError(null)
             }
+
         }
+
     }
 
 }
