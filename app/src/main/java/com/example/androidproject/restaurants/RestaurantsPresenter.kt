@@ -1,5 +1,6 @@
 package com.example.androidproject.restaurants
 
+import android.util.Log
 import com.example.androidproject.api.RestaurantsAPI
 import com.example.androidproject.api.RestaurantsAPIClient
 import com.example.androidproject.models.RestaurantResponse
@@ -28,7 +29,14 @@ class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract
             }
 
         }
-
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val restaurant = RestaurantsAPIClient.getInstance().getRestaurant(116272).execute().body()
+                Log.i("SUCCESS", restaurant.toString())
+            } catch (e: Exception) {
+                Log.e("ERROR", e.message!!)
+            }
+        }
     }
 
 }
