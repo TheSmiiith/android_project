@@ -45,4 +45,9 @@ data class Restaurant(
     val price: Short
 ) {
     fun getLocation(): String = "$country, $state, $city, $address"
+    fun getPriceInLetters(): String {
+        if (price <= 2) return "cheep"
+        if (price ==  3.toShort()) return "avarage"
+        return "expensive"
+    }
 }
