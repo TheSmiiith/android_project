@@ -3,6 +3,7 @@ package com.example.androidproject
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.androidproject.databinding.ActivityMainBinding
 import com.example.androidproject.fragments.ProfileFragment
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         setFragment(restaurantsFragment)
 
-        activity_main_bottom_navigation_view.setOnNavigationItemSelectedListener {
+        binding.activityMainBottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_restaurants -> setFragment(restaurantsFragment)
                 R.id.item_profile -> setFragment(profileFragment)
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.activity_main_wrapper, fragment)
+            replace(binding.activityMainWrapper.id, fragment)
             commit()
         }
     }
