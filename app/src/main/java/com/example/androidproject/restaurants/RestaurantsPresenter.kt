@@ -1,7 +1,6 @@
 package com.example.androidproject.restaurants
 
-import android.util.Log
-import com.example.androidproject.models.Restaurant
+import com.example.androidproject.models.RestaurantResponse
 import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -9,9 +8,7 @@ import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
-import retrofit2.Retrofit
 import java.lang.Exception
-import kotlin.reflect.typeOf
 
 class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract.Presenter(view) {
     override fun getRestaurants() {
@@ -25,7 +22,9 @@ class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract
                 if (!response.isSuccessful) {
                     view.showError(null)
                 }
-                Log.d("SUCCESS", response.message())
+                val gson = Gson()
+                val restaurantResponse: RestaurantResponse = gson.fromJson(response.body()?.charStream(), RestaurantResponse::class.java)
+                view.setRestaurants(restaurantResponse.restaurants)
             } catch (e: Exception) {
                 view.showError(null)
             }

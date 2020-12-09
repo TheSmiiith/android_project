@@ -28,8 +28,8 @@ class RestaurantsAdapter(private val restaurantList: List<Restaurant>) : Recycle
         val currentItem = restaurantList[position]
 
         holder.titleView.text = currentItem.name
-        holder.locationView.text = currentItem.address
-        holder.priceView.text = currentItem.price.toString()
+        holder.locationView.text = currentItem.getLocation()
+        holder.priceView.text = "Price - ${currentItem.price}"
     }
 
     override fun getItemCount(): Int = restaurantList.size

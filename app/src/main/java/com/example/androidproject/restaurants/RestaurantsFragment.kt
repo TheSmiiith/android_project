@@ -52,9 +52,11 @@ class RestaurantsFragment : Fragment(), RestaurantsContract.View {
 
     /* Set restaurants from presenter */
     override fun setRestaurants(restaurants: List<Restaurant>) {
-        binding.restaurantsRecyclerView.adapter = RestaurantsAdapter(restaurants)
-        binding.restaurantsRecyclerView.layoutManager = LinearLayoutManager(context)
-        binding.restaurantsRecyclerView.setHasFixedSize(true)
+        activity?.runOnUiThread {
+            binding.restaurantsRecyclerView.adapter = RestaurantsAdapter(restaurants)
+            binding.restaurantsRecyclerView.layoutManager = LinearLayoutManager(context)
+            binding.restaurantsRecyclerView.setHasFixedSize(true)
+        }
     }
 
     override fun showError(message: String?) {

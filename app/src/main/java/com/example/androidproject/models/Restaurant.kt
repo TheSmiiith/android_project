@@ -43,4 +43,6 @@ data class Restaurant(
 
     @SerializedName("price")
     val price: Short
-)
+) {
+    fun getLocation(): String = "$country, $state, $city, $address"
+}
