@@ -27,8 +27,8 @@ class RestaurantsAdapter(private val restaurantList: List<Restaurant>) : Recycle
     override fun onBindViewHolder(holder: RestaurantsViewHolder, position: Int) {
         val currentItem = restaurantList[position]
 
-        holder.titleView.text = currentItem.title
-        holder.locationView.text = currentItem.location
+        holder.titleView.text = currentItem.name
+        holder.locationView.text = currentItem.address
         holder.priceView.text = currentItem.price.toString()
     }
 
