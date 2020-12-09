@@ -1,16 +1,17 @@
 package com.example.androidproject.restaurants
 
+import com.example.androidproject.models.Restaurant
 import com.example.androidproject.mvp.BasePresenter
 import com.example.androidproject.mvp.BaseView
 
 interface RestaurantsContract {
 
     interface View : BaseView {
-        fun setData()
+        fun setRestaurants(restaurants: List<Restaurant>)
     }
 
     abstract class Presenter(view: View) : BasePresenter<View>(view) {
-        abstract fun getData()
+        abstract fun getRestaurants()
     }
 
 }

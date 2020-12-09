@@ -1,6 +1,6 @@
 package com.example.androidproject.models
 
-data class Restaurants(
+data class Restaurant(
     val image: String,
     val title: String,
     val description: String

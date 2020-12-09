@@ -7,10 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidproject.R
-import com.example.androidproject.models.Restaurants
+import com.example.androidproject.models.Restaurant
 import kotlinx.android.synthetic.main.item_restaurants.view.*
 
-class RestaurantsAdapter(private val restaurantsList: List<Restaurants>) : RecyclerView.Adapter<RestaurantsAdapter.RestaurantsViewHolder>() {
+class RestaurantsAdapter(private val restaurantList: List<Restaurant>) : RecyclerView.Adapter<RestaurantsAdapter.RestaurantsViewHolder>() {
 
     class RestaurantsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.item_restaurants_image
@@ -24,12 +24,12 @@ class RestaurantsAdapter(private val restaurantsList: List<Restaurants>) : Recyc
     }
 
     override fun onBindViewHolder(holder: RestaurantsViewHolder, position: Int) {
-        val currentItem = restaurantsList[position]
+        val currentItem = restaurantList[position]
 
         holder.titleView.text = currentItem.title
         holder.descriptionView.text = currentItem.description
     }
 
-    override fun getItemCount(): Int = restaurantsList.size
+    override fun getItemCount(): Int = restaurantList.size
 
 }
