@@ -1,3 +1,5 @@
 package com.example.androidproject.mvp
 
-interface BaseView
+interface BaseView {
+    fun showError(message: String?)
+}
