@@ -23,11 +23,11 @@ class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract
             try {
                 val response: Response = client.newCall(request).execute()
                 if (!response.isSuccessful) {
-                    // TODO: implement onError() function to all views
+                    view.showError(null)
                 }
                 Log.d("SUCCESS", response.message())
             } catch (e: Exception) {
-                // TODO: implement onError() function to all views
+                view.showError(null)
             }
         }
     }
