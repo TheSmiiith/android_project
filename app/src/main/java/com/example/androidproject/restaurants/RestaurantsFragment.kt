@@ -44,6 +44,8 @@ class RestaurantsFragment : Fragment(), RestaurantsContract.View {
         /* Get restaurants from presenter  */
         presenter.getRestaurants()
 
+        swipeToRefresh()
+
         return view
     }
 
@@ -81,6 +83,15 @@ class RestaurantsFragment : Fragment(), RestaurantsContract.View {
 
     override fun hideLoading() {
         alertDialog.dismiss()
+    }
+
+    private fun swipeToRefresh() {
+        binding.restaurantsSwipeToRefresh.setProgressBackgroundColorSchemeColor(resources.getColor(R.color.colorWhite))
+        binding.restaurantsSwipeToRefresh.setColorSchemeColors(resources.getColor(R.color.colorPrimary))
+        binding.restaurantsSwipeToRefresh.setOnRefreshListener {
+            binding.restaurantsSwipeToRefresh.isRefreshing = false
+            presenter.getRestaurants()
+        }
     }
 
 }
