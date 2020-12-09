@@ -8,4 +8,6 @@
     <!-- Profile Fragment -->
     <string name="favorites">Favorites</string>
     <string name="profile_settings">Settings</string>
+    <!-- Details Fragment -->
+    <string name="details">Details</string>
 </resources>

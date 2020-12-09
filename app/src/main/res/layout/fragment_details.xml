@@ -4,37 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".restaurants.RestaurantsFragment">
+    tools:context=".details.DetailsFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/restaurants_top_appbar_layout"
+        android:id="@+id/details_top_appbar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/restaurants_top_appbar"
+            android:id="@+id/details_top_appbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/restaurants"
-            app:menu="@menu/restaurants_appbar_menu"
+            app:title="@string/details"
             app:titleTextColor="@color/colorWhite" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/restaurants_wrapper"
+        android:id="@+id/details_wrapper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/restaurants_top_appbar_layout"
+        android:layout_below="@+id/details_top_appbar_layout"
         android:background="@color/colorWhite">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/restaurants_recycler_view"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_restaurants"/>
+            android:text="@string/details"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
