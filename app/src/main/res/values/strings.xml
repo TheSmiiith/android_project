@@ -14,4 +14,7 @@
     <string name="error_title">Oups!</string>
     <string name="error_message">Something went wrong.</string>
     <string name="error_try_again">Try again</string>
+    <!-- Loading -->
+    <string name="loading_title">Hold on for a moment...</string>
+    <string name="loading_message">Your data is loading...</string>
 </resources>

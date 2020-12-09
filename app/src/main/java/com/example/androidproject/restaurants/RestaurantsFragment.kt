@@ -27,6 +27,8 @@ class RestaurantsFragment : Fragment(), RestaurantsContract.View {
     /* Presenter */
     private lateinit var presenter: RestaurantsPresenter
 
+    lateinit var alertDialog: androidx.appcompat.app.AlertDialog
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -67,6 +69,18 @@ class RestaurantsFragment : Fragment(), RestaurantsContract.View {
                 .setCancelable(false)
                 .show()
         }
+    }
+
+    override fun showLoading() {
+        alertDialog = MaterialAlertDialogBuilder(context!!).create()
+        alertDialog.setTitle(getString(R.string.loading_title))
+        alertDialog.setMessage(getString(R.string.loading_message))
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
+
+    override fun hideLoading() {
+        alertDialog.dismiss()
     }
 
 }
