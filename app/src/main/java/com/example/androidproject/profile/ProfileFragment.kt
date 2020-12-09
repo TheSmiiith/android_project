@@ -19,6 +19,8 @@ class ProfileFragment : Fragment(), ProfileContract.View {
     /* Presenter */
     private lateinit var presenter: ProfilePresenter
 
+    lateinit var alertDialog: androidx.appcompat.app.AlertDialog
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,6 +54,18 @@ class ProfileFragment : Fragment(), ProfileContract.View {
                 .setCancelable(false)
                 .show()
         }
+    }
+
+    override fun showLoading() {
+        alertDialog = MaterialAlertDialogBuilder(context!!).create()
+        alertDialog.setTitle(getString(R.string.loading_title))
+        alertDialog.setMessage(getString(R.string.loading_message))
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
+
+    override fun hideLoading() {
+        alertDialog.dismiss()
     }
 
 }
