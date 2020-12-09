@@ -15,7 +15,8 @@ class RestaurantsAdapter(private val restaurantList: List<Restaurant>) : Recycle
     class RestaurantsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.item_restaurants_image
         val titleView: TextView = itemView.item_restaurants_title
-        val descriptionView: TextView = itemView.item_restaurants_description
+        val locationView: TextView = itemView.item_restaurants_location
+        val priceView: TextView = itemView.item_restaurants_price
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantsViewHolder {
@@ -27,7 +28,8 @@ class RestaurantsAdapter(private val restaurantList: List<Restaurant>) : Recycle
         val currentItem = restaurantList[position]
 
         holder.titleView.text = currentItem.title
-        holder.descriptionView.text = currentItem.description
+        holder.locationView.text = currentItem.location
+        holder.priceView.text = currentItem.price.toString()
     }
 
     override fun getItemCount(): Int = restaurantList.size
