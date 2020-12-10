@@ -1,4 +1,4 @@
-package com.example.androidproject.fragments.profile
+package com.example.androidproject.fragments.profile.adapters
 
 import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment

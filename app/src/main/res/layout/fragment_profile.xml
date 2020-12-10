@@ -27,27 +27,15 @@
         android:layout_width="match_parent"
         android:layout_below="@id/profile_top_appbar_layout">
 
-
-
     </com.google.android.material.tabs.TabLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/profile_wrapper"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/profile_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/profile_tab_layout"
         android:background="@color/colorWhite">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/profile"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.viewpager.widget.ViewPager>
 
 </RelativeLayout>

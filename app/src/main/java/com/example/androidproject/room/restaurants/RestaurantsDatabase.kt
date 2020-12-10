@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.androidproject.models.Restaurant
+import com.example.androidproject.models.restaurants.Restaurant
 
 @Database(entities = [Restaurant::class], version = 1, exportSchema = false)
 abstract class RestaurantsDatabase: RoomDatabase() {
