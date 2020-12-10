@@ -1,9 +1,6 @@
-package com.example.androidproject.restaurants
+package com.example.androidproject.fragments.restaurants
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidproject.R
 import com.example.androidproject.databinding.FragmentRestaurantsBinding
 import com.example.androidproject.models.Restaurant
-import com.example.androidproject.restaurants.adapters.RestaurantsAdapter
+import com.example.androidproject.fragments.restaurants.adapters.RestaurantsAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.fragment_restaurants.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class RestaurantsFragment : Fragment(), RestaurantsContract.View {
 

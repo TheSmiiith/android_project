@@ -1,13 +1,15 @@
-package com.example.androidproject.restaurants.adapters
+package com.example.androidproject.fragments.restaurants.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidproject.R
+import com.example.androidproject.fragments.details.DetailsFragment
 import com.example.androidproject.models.Restaurant
 import kotlinx.android.synthetic.main.item_restaurants.view.*
 
@@ -36,11 +38,21 @@ class RestaurantsAdapter(private val restaurantList: List<Restaurant>) : Recycle
             .override(280, 280)
             .fitCenter()
             .into(holder.imageView)
-        holder.titleView.text = if (currentItem.name.length > 20) currentItem.name.substring(0, 20) + "..."
+        holder.titleView.text = if (currentItem.name.length > 25) currentItem.name.substring(0, 25) + "..."
             else currentItem.name
-        holder.locationView.text = if (currentItem.getLocation().length > 25) currentItem.getLocation().substring(0, 25) + "..."
+        holder.locationView.text = if (currentItem.getLocation().length > 30) currentItem.getLocation().substring(0, 30) + "..."
             else currentItem.getLocation()
-        holder.priceView.text = "Price - ${currentItem.getPriceInLetters()} (${currentItem.price})"
+        holder.priceView.text = "Price - ${currentItem.price}"
+
+        /* onClickListener() */
+        holder.itemView.setOnClickListener {
+            val activity: AppCompatActivity = it.context as AppCompatActivity
+            val detailsFragment = DetailsFragment()
+            activity.supportFragmentManager.beginTransaction().apply {
+                replace(R.id.activity_main_wrapper, detailsFragment)
+                commit()
+            }
+        }
     }
 
     override fun getItemCount(): Int = restaurantList.size

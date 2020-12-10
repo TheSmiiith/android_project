@@ -1,17 +1,10 @@
-package com.example.androidproject.restaurants
+package com.example.androidproject.fragments.restaurants
 
-import com.example.androidproject.api.RestaurantsAPI
+import android.util.Log
 import com.example.androidproject.api.RestaurantsAPIClient
-import com.example.androidproject.models.RestaurantResponse
-import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract.Presenter(view) {
@@ -28,7 +21,14 @@ class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract
             }
 
         }
-
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val restaurant = RestaurantsAPIClient.getInstance().getRestaurant(116272).execute().body()
+                Log.i("SUCCESS", restaurant.toString())
+            } catch (e: Exception) {
+                Log.e("ERROR", e.message!!)
+            }
+        }
     }
 
 }

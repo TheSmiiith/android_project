@@ -1,4 +1,4 @@
-package com.example.androidproject.details
+package com.example.androidproject.fragments.details
 
 import com.example.androidproject.mvp.BasePresenter
 import com.example.androidproject.mvp.BaseView
