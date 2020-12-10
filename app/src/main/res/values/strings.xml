@@ -10,6 +10,8 @@
     <string name="profile_settings">Settings</string>
     <!-- Details Fragment -->
     <string name="details">Details</string>
+    <string name="details_map">Open with Google Maps</string>
+    <string name="details_call">Call restaurant</string>
     <!-- Error -->
     <string name="error_title">Oups!</string>
     <string name="error_message">Something went wrong.</string>
