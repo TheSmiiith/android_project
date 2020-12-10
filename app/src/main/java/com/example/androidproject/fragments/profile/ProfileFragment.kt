@@ -11,6 +11,7 @@ import com.example.androidproject.databinding.FragmentProfileBinding
 import com.example.androidproject.fragments.profile.adapters.TabAdapter
 import com.example.androidproject.fragments.profile.favorites.FavoritesFragment
 import com.example.androidproject.fragments.profile.settings.SettingsFragment
+import com.example.androidproject.utils.MMaterialAlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.tabs.TabLayout
 
@@ -62,24 +63,20 @@ class ProfileFragment : Fragment(), ProfileContract.View {
 
     override fun showError(message: String?) {
         activity?.runOnUiThread {
-            MaterialAlertDialogBuilder(context!!)
-                .setTitle(getString(R.string.error_title))
-                .setMessage(getString(R.string.error_message))
-                .setCancelable(false)
-                .show()
+            MMaterialAlertDialog.getErrorDialog(context!!)
         }
     }
 
     override fun showLoading() {
-        alertDialog = MaterialAlertDialogBuilder(context!!).create()
-        alertDialog.setTitle(getString(R.string.loading_title))
-        alertDialog.setMessage(getString(R.string.loading_message))
-        alertDialog.setCancelable(false)
-        alertDialog.show()
+        activity?.runOnUiThread {
+            alertDialog = MMaterialAlertDialog.getLoadingDialog(context!!)
+        }
     }
 
     override fun hideLoading() {
-        alertDialog.dismiss()
+        activity?.runOnUiThread {
+            alertDialog.dismiss()
+        }
     }
 
 }

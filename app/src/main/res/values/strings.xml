@@ -20,7 +20,7 @@
     <string name="settings_phone">Phone number</string>
     <string name="settings_save">Save changes</string>
     <string name="required">* required</string>
-    <string name="settings_success_update">Your data has been updated successfully.</string>
+    <string name="settings_success_update">Your profile has been updated successfully.</string>
     <!-- Error -->
     <string name="error_title">Oups!</string>
     <string name="error_message">Something went wrong.</string>

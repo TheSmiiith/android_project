@@ -12,6 +12,7 @@ import com.example.androidproject.R
 import com.example.androidproject.databinding.FragmentSettingsBinding
 import com.example.androidproject.models.profile.Profile
 import com.example.androidproject.utils.FormUtils
+import com.example.androidproject.utils.MMaterialAlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
@@ -84,35 +85,26 @@ class SettingsFragment : Fragment(), SettingsContract.View {
 
     override fun showSuccess() {
         activity?.runOnUiThread {
-            MaterialAlertDialogBuilder(context!!)
-                .setTitle(getString(R.string.success_title))
-                .setMessage(getString(R.string.settings_success_update))
-                .setIcon(R.drawable.ic_success_24)
-                .setCancelable(false)
-                .show()
+            MMaterialAlertDialog.getSuccessDialog(context!!, getString(R.string.settings_success_update))
         }
     }
 
     override fun showError(message: String?) {
         activity?.runOnUiThread {
-            MaterialAlertDialogBuilder(context!!)
-                .setTitle(getString(R.string.error_title))
-                .setMessage(getString(R.string.error_message))
-                .setCancelable(false)
-                .show()
+            MMaterialAlertDialog.getErrorDialog(context!!)
         }
     }
 
     override fun showLoading() {
-        alertDialog = MaterialAlertDialogBuilder(context!!).create()
-        alertDialog.setTitle(getString(R.string.loading_title))
-        alertDialog.setMessage(getString(R.string.loading_message))
-        alertDialog.setCancelable(false)
-        alertDialog.show()
+        activity?.runOnUiThread {
+            alertDialog = MMaterialAlertDialog.getLoadingDialog(context!!)
+        }
     }
 
     override fun hideLoading() {
-        alertDialog.dismiss()
+        activity?.runOnUiThread {
+            alertDialog.dismiss()
+        }
     }
 
 }
