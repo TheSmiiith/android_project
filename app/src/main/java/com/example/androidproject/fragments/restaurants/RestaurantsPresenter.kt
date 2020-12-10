@@ -1,18 +1,10 @@
-package com.example.androidproject.restaurants
+package com.example.androidproject.fragments.restaurants
 
 import android.util.Log
-import com.example.androidproject.api.RestaurantsAPI
 import com.example.androidproject.api.RestaurantsAPIClient
-import com.example.androidproject.models.RestaurantResponse
-import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract.Presenter(view) {

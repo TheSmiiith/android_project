@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.androidproject.databinding.ActivityMainBinding
-import com.example.androidproject.profile.ProfileFragment
-import com.example.androidproject.restaurants.RestaurantsFragment
+import com.example.androidproject.fragments.profile.ProfileFragment
+import com.example.androidproject.fragments.restaurants.RestaurantsFragment
 
 class MainActivity : AppCompatActivity() {
 
