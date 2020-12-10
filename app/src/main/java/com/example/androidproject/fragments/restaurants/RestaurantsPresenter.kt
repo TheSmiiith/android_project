@@ -1,7 +1,10 @@
 package com.example.androidproject.fragments.restaurants
 
+import android.app.Application
 import android.util.Log
 import com.example.androidproject.api.RestaurantsAPIClient
+import com.example.androidproject.room.restaurants.RestaurantsDatabase
+import com.example.androidproject.room.restaurants.RestaurantsRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,19 +18,14 @@ class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract
                 val restaurantResponse = RestaurantsAPIClient.getInstance().getRestaurants().execute().body()
                 view.hideLoading()
                 view.setRestaurants(restaurantResponse!!.restaurants)
+                /* Save to local database */
+                val restaurantsDao = RestaurantsDatabase.getDatabase(Application()).restaurantDao()
+                RestaurantsRepository(restaurantsDao).addRestaurant(restaurantResponse.restaurants)
             } catch (e: Exception) {
                 view.hideLoading()
                 view.showError(null)
             }
 
-        }
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val restaurant = RestaurantsAPIClient.getInstance().getRestaurant(116272).execute().body()
-                Log.i("SUCCESS", restaurant.toString())
-            } catch (e: Exception) {
-                Log.e("ERROR", e.message!!)
-            }
         }
     }
 
