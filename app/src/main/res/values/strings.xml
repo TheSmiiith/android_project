@@ -12,6 +12,13 @@
     <string name="details">Details</string>
     <string name="details_map">Open with Google Maps</string>
     <string name="details_call">Call restaurant</string>
+    <!-- Settings Fragment -->
+    <string name="settings_title">Your Profile</string>
+    <string name="settings_name">Full name</string>
+    <string name="settings_address">Address</string>
+    <string name="settings_email">E-mail address</string>
+    <string name="settings_phone">Phone number</string>
+    <string name="settings_save">Save changes</string>
     <!-- Error -->
     <string name="error_title">Oups!</string>
     <string name="error_message">Something went wrong.</string>
