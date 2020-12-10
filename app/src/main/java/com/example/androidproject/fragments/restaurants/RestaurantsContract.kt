@@ -1,4 +1,4 @@
-package com.example.androidproject.restaurants
+package com.example.androidproject.fragments.restaurants
 
 import com.example.androidproject.models.Restaurant
 import com.example.androidproject.mvp.BasePresenter
