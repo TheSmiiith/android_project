@@ -6,11 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import com.example.androidproject.R
 import com.example.androidproject.databinding.FragmentSettingsBinding
 import com.example.androidproject.models.profile.Profile
 import com.example.androidproject.utils.FormUtils
+import com.example.androidproject.utils.MMaterialAlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputLayout
+import java.time.Duration
 
 class SettingsFragment : Fragment(), SettingsContract.View {
 
@@ -19,6 +25,13 @@ class SettingsFragment : Fragment(), SettingsContract.View {
 
     /* Presenter */
     private lateinit var presenter: SettingsPresenter
+
+    /* Views */
+    lateinit var nameLayout: TextInputLayout
+    lateinit var addressLayout: TextInputLayout
+    lateinit var emailLayout: TextInputLayout
+    lateinit var phoneLayout: TextInputLayout
+    lateinit var saveButton: Button
 
     lateinit var alertDialog: androidx.appcompat.app.AlertDialog
 
@@ -33,19 +46,19 @@ class SettingsFragment : Fragment(), SettingsContract.View {
         /* Instantiate Presenter */
         presenter = SettingsPresenter(this)
 
-        presenter.getProfile(context!!)
-
         initForm()
+
+        presenter.getProfile(context!!)
 
         return view
     }
 
     private fun initForm() {
-        val nameLayout = binding.settingsNameTextInputLayout
-        val addressLayout = binding.settingsAddressTextInputLayout
-        val emailLayout = binding.settingsEmailTextInputLayout
-        val phoneLayout = binding.settingsPhoneTextInputLayout
-        val saveButton = binding.settingsSave
+        nameLayout = binding.settingsNameTextInputLayout
+        addressLayout = binding.settingsAddressTextInputLayout
+        emailLayout = binding.settingsEmailTextInputLayout
+        phoneLayout = binding.settingsPhoneTextInputLayout
+        saveButton = binding.settingsSave
         saveButton.setOnClickListener {
             if (FormUtils.validateSettingsForm(
                     nameLayout, addressLayout, emailLayout, phoneLayout
@@ -62,29 +75,36 @@ class SettingsFragment : Fragment(), SettingsContract.View {
     }
 
     override fun setProfile(profile: Profile) {
-        Log.i("PROFILE", profile.toString())
+        activity?.runOnUiThread {
+            nameLayout.editText?.setText(profile.name)
+            addressLayout.editText?.setText(profile.address)
+            emailLayout.editText?.setText(profile.email)
+            phoneLayout.editText?.setText(profile.phone_number)
+        }
+    }
+
+    override fun showSuccess() {
+        activity?.runOnUiThread {
+            MMaterialAlertDialog.getSuccessDialog(context!!, getString(R.string.settings_success_update))
+        }
     }
 
     override fun showError(message: String?) {
         activity?.runOnUiThread {
-            MaterialAlertDialogBuilder(context!!)
-                .setTitle(getString(R.string.error_title))
-                .setMessage(getString(R.string.error_message))
-                .setCancelable(false)
-                .show()
+            MMaterialAlertDialog.getErrorDialog(context!!)
         }
     }
 
     override fun showLoading() {
-        alertDialog = MaterialAlertDialogBuilder(context!!).create()
-        alertDialog.setTitle(getString(R.string.loading_title))
-        alertDialog.setMessage(getString(R.string.loading_message))
-        alertDialog.setCancelable(false)
-        alertDialog.show()
+        activity?.runOnUiThread {
+            alertDialog = MMaterialAlertDialog.getLoadingDialog(context!!)
+        }
     }
 
     override fun hideLoading() {
-        alertDialog.dismiss()
+        activity?.runOnUiThread {
+            alertDialog.dismiss()
+        }
     }
 
 }

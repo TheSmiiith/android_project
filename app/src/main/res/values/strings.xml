@@ -20,10 +20,14 @@
     <string name="settings_phone">Phone number</string>
     <string name="settings_save">Save changes</string>
     <string name="required">* required</string>
+    <string name="settings_success_update">Your profile has been updated successfully.</string>
     <!-- Error -->
     <string name="error_title">Oups!</string>
     <string name="error_message">Something went wrong.</string>
     <string name="error_try_again">Try again</string>
+    <!-- Success -->
+    <string name="success_title">Hurray!</string>
+    <string name="success_message">Your request has finished successfully.</string>
     <!-- Loading -->
     <string name="loading_title">Hold on for a moment...</string>
     <string name="loading_message">Your data is loading...</string>

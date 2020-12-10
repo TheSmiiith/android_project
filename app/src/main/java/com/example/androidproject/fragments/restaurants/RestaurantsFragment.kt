@@ -10,6 +10,7 @@ import com.example.androidproject.R
 import com.example.androidproject.databinding.FragmentRestaurantsBinding
 import com.example.androidproject.models.restaurants.Restaurant
 import com.example.androidproject.fragments.restaurants.adapters.RestaurantsAdapter
+import com.example.androidproject.utils.MMaterialAlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class RestaurantsFragment : Fragment(), RestaurantsContract.View {
@@ -58,24 +59,20 @@ class RestaurantsFragment : Fragment(), RestaurantsContract.View {
 
     override fun showError(message: String?) {
         activity?.runOnUiThread {
-            MaterialAlertDialogBuilder(context!!)
-                .setTitle(getString(R.string.error_title))
-                .setMessage(getString(R.string.error_message))
-                .setCancelable(false)
-                .show()
+            MMaterialAlertDialog.getErrorDialog(context!!)
         }
     }
 
     override fun showLoading() {
-        alertDialog = MaterialAlertDialogBuilder(context!!).create()
-        alertDialog.setTitle(getString(R.string.loading_title))
-        alertDialog.setMessage(getString(R.string.loading_message))
-        alertDialog.setCancelable(false)
-        alertDialog.show()
+        activity?.runOnUiThread {
+            alertDialog = MMaterialAlertDialog.getLoadingDialog(context!!)
+        }
     }
 
     override fun hideLoading() {
-        alertDialog.dismiss()
+        activity?.runOnUiThread {
+            alertDialog.dismiss()
+        }
     }
 
     private fun swipeToRefresh() {

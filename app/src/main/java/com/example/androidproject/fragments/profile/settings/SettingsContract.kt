@@ -9,6 +9,7 @@ interface SettingsContract {
 
     interface View : BaseView {
         fun setProfile(profile: Profile)
+        fun showSuccess()
     }
 
     abstract class Presenter(view: View) : BasePresenter<View>(view) {
