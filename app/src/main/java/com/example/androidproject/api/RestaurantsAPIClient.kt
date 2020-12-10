@@ -11,7 +11,7 @@ object RestaurantsAPIClient {
     init {
         val client = OkHttpClient()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://opentable.herokuapp.com/api/")
+            .baseUrl("https://ratpark-api.imok.space/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
