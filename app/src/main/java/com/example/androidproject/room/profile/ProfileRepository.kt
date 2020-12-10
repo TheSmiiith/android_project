@@ -8,6 +8,8 @@ class ProfileRepository(private val profileDao: ProfileDao) {
         profileDao.addProfile(profile)
     }
 
+    suspend fun getProfile(id: Int): Profile = profileDao.getProfile(id)
+
     suspend fun updateProfile(profile: Profile) {
         profileDao.updateProfile(profile)
     }

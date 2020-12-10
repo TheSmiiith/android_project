@@ -1,9 +1,6 @@
 package com.example.androidproject.room.profile
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Update
+import androidx.room.*
 import com.example.androidproject.models.profile.Profile
 
 @Dao
@@ -11,6 +8,9 @@ interface ProfileDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addProfile(profile: Profile)
+
+    @Query("SELECT * FROM profiles WHERE id = :id")
+    suspend fun getProfile(id: Int): Profile
 
     @Update
     suspend fun updateProfile(profile: Profile)
