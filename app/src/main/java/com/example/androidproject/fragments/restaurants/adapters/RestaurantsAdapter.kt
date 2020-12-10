@@ -1,11 +1,13 @@
 package com.example.androidproject.fragments.restaurants.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidproject.R
@@ -47,6 +49,9 @@ class RestaurantsAdapter(private val restaurantList: List<Restaurant>) : Recycle
         holder.itemView.setOnClickListener {
             val activity: AppCompatActivity = it.context as AppCompatActivity
             val detailsFragment = DetailsFragment()
+            val bundle = Bundle()
+            bundle.putInt("id", currentItem.id)
+            detailsFragment.arguments = bundle
             activity.supportFragmentManager.beginTransaction().apply {
                 replace(R.id.activity_main_wrapper, detailsFragment)
                 commit()
