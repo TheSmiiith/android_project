@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
-            replace(binding.activityMainWrapper.id, fragment)
+            add(binding.activityMainWrapper.id, fragment)
             commit()
         }
     }
