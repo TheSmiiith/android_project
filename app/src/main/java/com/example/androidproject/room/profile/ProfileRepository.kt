@@ -1,6 +1,6 @@
 package com.example.androidproject.room.profile
 
-import com.example.androidproject.models.Profile
+import com.example.androidproject.models.profile.Profile
 
 class ProfileRepository(private val profileDao: ProfileDao) {
 

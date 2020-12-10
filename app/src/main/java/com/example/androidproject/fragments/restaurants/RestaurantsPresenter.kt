@@ -23,7 +23,7 @@ class RestaurantsPresenter(view: RestaurantsContract.View) : RestaurantsContract
                 RestaurantsRepository(restaurantsDao).addRestaurant(restaurantResponse.restaurants)
             } catch (e: Exception) {
                 view.hideLoading()
-                view.showError(null)
+                // view.showError(null)
             }
 
         }

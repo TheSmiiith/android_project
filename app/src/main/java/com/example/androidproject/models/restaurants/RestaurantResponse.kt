@@ -1,5 +1,6 @@
-package com.example.androidproject.models
+package com.example.androidproject.models.restaurants
 
+import com.example.androidproject.models.restaurants.Restaurant
 import com.google.gson.annotations.SerializedName
 
 data class RestaurantResponse(

@@ -1,4 +1,4 @@
-package com.example.androidproject.models
+package com.example.androidproject.models.restaurants
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

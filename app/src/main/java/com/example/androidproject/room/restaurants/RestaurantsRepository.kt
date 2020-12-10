@@ -1,6 +1,6 @@
 package com.example.androidproject.room.restaurants
 
-import com.example.androidproject.models.Restaurant
+import com.example.androidproject.models.restaurants.Restaurant
 
 class RestaurantsRepository(private val restaurantsDao: RestaurantsDao) {
 

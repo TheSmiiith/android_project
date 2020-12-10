@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidproject.R
 import com.example.androidproject.databinding.FragmentRestaurantsBinding
-import com.example.androidproject.models.Restaurant
+import com.example.androidproject.models.restaurants.Restaurant
 import com.example.androidproject.fragments.restaurants.adapters.RestaurantsAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 

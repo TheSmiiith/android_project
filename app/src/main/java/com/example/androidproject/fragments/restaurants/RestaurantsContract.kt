@@ -1,6 +1,6 @@
 package com.example.androidproject.fragments.restaurants
 
-import com.example.androidproject.models.Restaurant
+import com.example.androidproject.models.restaurants.Restaurant
 import com.example.androidproject.mvp.BasePresenter
 import com.example.androidproject.mvp.BaseView
 

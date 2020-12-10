@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.androidproject.R
 import com.example.androidproject.fragments.details.DetailsFragment
-import com.example.androidproject.models.Restaurant
+import com.example.androidproject.models.restaurants.Restaurant
 import com.example.androidproject.utils.MTextUtils
 import kotlinx.android.synthetic.main.item_restaurants.view.*
 
