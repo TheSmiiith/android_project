@@ -11,6 +11,5 @@ data class Profile (
     var name: String,
     var profile_pic: String,
     var Address: String,
-    var phone_number: String,
-    var favorites: List<Int>
+    var phone_number: String
 )
