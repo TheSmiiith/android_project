@@ -8,7 +8,7 @@ import retrofit2.http.Path
 
 interface RestaurantsAPI {
 
-    @GET("restaurants?country=US")
+    @GET("restaurants")
     fun getRestaurants(): Call<RestaurantResponse>
 
     @GET("restaurants/{id}")

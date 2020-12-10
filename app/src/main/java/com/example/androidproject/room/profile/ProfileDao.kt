@@ -6,7 +6,7 @@ import com.example.androidproject.models.profile.Profile
 @Dao
 interface ProfileDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addProfile(profile: Profile)
 
     @Query("SELECT * FROM profiles WHERE id = :id")
