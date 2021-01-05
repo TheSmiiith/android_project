@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margins & Paddings -->
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="default_margin_double">32dp</dimen>
+    <dimen name="default_margin_half">8dp</dimen>
+    <!-- Text Sizes -->
+    <dimen name="h1">28dp</dimen>
+    <dimen name="h2">24dp</dimen>
+    <dimen name="h3">20dp</dimen>
+    <dimen name="h4">18dp</dimen>
+    <dimen name="paragraph">16dp</dimen>
+    <dimen name="paragraph_small">14dp</dimen>
+</resources>

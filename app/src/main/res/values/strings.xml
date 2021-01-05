@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">AndroidProject</string>
+    <string name="app_name">Where To Eat?</string>
+    <!-- Navigation -->
+    <string name="restaurants">Restaurants</string>
+    <string name="profile">Profile</string>
+    <!-- Restaurants Fragment -->
+    <string name="search">Search</string>
+    <!-- Profile Fragment -->
+    <string name="favorites">Favorites</string>
+    <string name="profile_settings">Settings</string>
+    <!-- Details Fragment -->
+    <string name="details">Details</string>
+    <string name="details_map">Open with Google Maps</string>
+    <string name="details_call">Call restaurant</string>
+    <!-- Settings Fragment -->
+    <string name="settings_title">Your Profile</string>
+    <string name="settings_name">Full name</string>
+    <string name="settings_address">Address</string>
+    <string name="settings_email">E-mail address</string>
+    <string name="settings_phone">Phone number</string>
+    <string name="settings_save">Save changes</string>
+    <string name="required">* required</string>
+    <string name="settings_success_update">Your profile has been updated successfully.</string>
+    <!-- Error -->
+    <string name="error_title">Oups!</string>
+    <string name="error_message">Something went wrong.</string>
+    <string name="error_try_again">Try again</string>
+    <!-- Success -->
+    <string name="success_title">Hurray!</string>
+    <string name="success_message">Your request has finished successfully.</string>
+    <!-- Loading -->
+    <string name="loading_title">Hold on for a moment...</string>
+    <string name="loading_message">Your data is loading...</string>
 </resources>

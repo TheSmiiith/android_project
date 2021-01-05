@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin_half">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/item_restaurants_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/item_restaurants_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/item_restaurants_image"
+            android:text="Title"
+            android:textSize="@dimen/h4"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/item_restaurants_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            app:layout_constraintTop_toBottomOf="@id/item_restaurants_title"
+            app:layout_constraintStart_toEndOf="@id/item_restaurants_image"
+            android:text="Location"
+            android:textSize="@dimen/paragraph"/>
+
+        <TextView
+            android:id="@+id/item_restaurants_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            app:layout_constraintTop_toBottomOf="@id/item_restaurants_location"
+            app:layout_constraintStart_toEndOf="@id/item_restaurants_image"
+            android:text="Price"
+            android:textSize="@dimen/paragraph"/>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/item_restaurants_favorite"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:layout_margin="@dimen/default_margin"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:src="@drawable/ic_favorite_outline_24" />-->
+
+        <ImageView
+            android:id="@+id/item_restaurants_favorite_outline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/default_margin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/ic_favorite_outline_24"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

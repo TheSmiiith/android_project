@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.details.DetailsFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/details_top_appbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/details_top_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/details"
+            app:titleTextColor="@color/colorWhite" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/details_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/details_top_appbar_layout"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/details_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_image_280px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/details_text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/default_margin_half"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/details_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/details_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:text="Title"
+                android:textSize="@dimen/h2"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/details_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin_half"
+                android:text="Location"
+                android:textSize="@dimen/paragraph" />
+
+            <TextView
+                android:id="@+id/details_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin_half"
+                android:text="Price"
+                android:textSize="@dimen/paragraph" />
+
+            <TextView
+                android:id="@+id/details_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginTop="@dimen/default_margin_half"
+                android:text="Phone"
+                android:textSize="@dimen/paragraph" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/details_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            app:icon="@drawable/ic_favorite_outline_24"
+            android:text="Favorite"
+            android:visibility="gone"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            app:layout_constraintEnd_toEndOf="@id/details_text_layout"
+            app:layout_constraintTop_toTopOf="@id/details_text_layout"
+            app:layout_constraintBottom_toBottomOf="@id/details_text_layout"/>
+
+        <Button
+            android:id="@+id/details_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/details_call"
+            app:icon="@drawable/ic_phone_24"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_text_layout" />
+
+        <Button
+            android:id="@+id/details_google_maps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:text="@string/details_map"
+            app:icon="@drawable/ic_map_24"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/details_call" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
