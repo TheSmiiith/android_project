@@ -36,7 +36,7 @@ class RestaurantsFragment : Fragment(), RestaurantsContract.View {
         presenter = RestaurantsPresenter(this)
 
         /* Get restaurants from presenter  */
-        presenter.getRestaurants()
+        presenter.getRestaurants(context!!)
 
         swipeToRefresh()
 
@@ -80,7 +80,7 @@ class RestaurantsFragment : Fragment(), RestaurantsContract.View {
         binding.restaurantsSwipeToRefresh.setColorSchemeColors(resources.getColor(R.color.colorPrimary))
         binding.restaurantsSwipeToRefresh.setOnRefreshListener {
             binding.restaurantsSwipeToRefresh.isRefreshing = false
-            presenter.getRestaurants()
+            presenter.getRestaurants(context!!)
         }
     }
 
