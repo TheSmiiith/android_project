@@ -22,7 +22,6 @@ class DetailsPresenter(view: DetailsContract.View) : DetailsContract.Presenter(v
                     view.showError(null)
                 }
             } catch (e: Exception) {
-                Log.e("ERROR", e.toString())
                 view.hideLoading()
                 view.showError(null)
             }
